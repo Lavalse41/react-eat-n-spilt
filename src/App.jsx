@@ -24,9 +24,17 @@ function App() {
     setShowAddFrd(false);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!bill || !paidByUser) return;
+  function handleSplitBill(value) {
+    console.log(value);
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFrd.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+
+    setSelectedFrd(null);
   }
 
   return (
@@ -42,7 +50,12 @@ function App() {
           {showAddFrd ? "Close" : "Add Friend"}
         </Button>
       </div>
-      {selectedFrd && <FormSplitBill selectedFrd={selectedFrd} />}
+      {selectedFrd && (
+        <FormSplitBill
+          selectedFrd={selectedFrd}
+          onSplitBill={handleSplitBill}
+        />
+      )}
     </div>
   );
 }
@@ -145,16 +158,18 @@ function FormAddFriend({ onAddFriend }) {
   );
 }
 
-function FormSplitBill({ selectedFrd }) {
+function FormSplitBill({ selectedFrd, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [paidByUser, setPaidByUser] = useState("");
   const paidByFriend = bill ? bill - paidByUser : "";
   const [whoIsPaying, setWhoIsPaying] = useState("user");
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (!bill || !paidByUser) return;
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!bill || !paidByUser) return;
+
+    onSplitBill(whoIsPaying === "user" ? paidByFriend : -paidByFriend);
+  }
 
   return (
     <form className="form-split-bill" onClick={handleSubmit}>
