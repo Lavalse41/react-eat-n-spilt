@@ -138,14 +138,18 @@ function FormAddFriend({ onAddFriend }) {
   return (
     <div>
       <form className="form-add-friend" onSubmit={handleSubmit}>
-        <label>🙌 Friend name</label>
+        <label>
+          <span className="icon">🕺</span>Friend name
+        </label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></input>
 
-        <label>🌆 Image URL</label>
+        <label>
+          <span className="icon">🌆</span> Image URL
+        </label>
         <input
           type="text"
           value={image}
@@ -175,14 +179,18 @@ function FormSplitBill({ selectedFrd, onSplitBill }) {
     <form className="form-split-bill" onClick={handleSubmit}>
       <h2>Split a bill with {selectedFrd.name}</h2>
 
-      <label>💰 Bill value</label>
+      <label>
+        <span className="icon">💰</span> Bill value
+      </label>
       <input
         type="text"
         value={bill}
         onChange={(e) => setBill(Number(e.target.value))}
       ></input>
 
-      <label>👩 Your expense</label>
+      <label>
+        <span className="icon">👩</span> Your expense
+      </label>
       <input
         type="text"
         value={paidByUser}
@@ -193,10 +201,14 @@ function FormSplitBill({ selectedFrd, onSplitBill }) {
         }
       ></input>
 
-      <label>💸 {selectedFrd.name}'s expense</label>
+      <label>
+        <span className="icon">💸</span> {selectedFrd.name}'s expense
+      </label>
       <input type="text" disabled value={paidByFriend}></input>
 
-      <label>😭 Who is paying the bill</label>
+      <label>
+        <span className="icon">😭</span> Who is paying the bill
+      </label>
       <select
         value={whoIsPaying}
         onChange={(e) => setWhoIsPaying(e.target.value)}
