@@ -29,7 +29,7 @@ body {
 .app {
   min-height: 66vh;
   display: grid;
-  grid-template-columns: 34rem 44rem;
+  grid-template-columns: 36rem 44rem;
   column-gap: 5rem;
   align-items: start;
 }
@@ -60,7 +60,7 @@ body {
   gap: 0.4rem;
   font-size: 1.4rem;
   margin-bottom: 2rem;
-  width: 360px;
+  width: 36rem;
 }
 
 .sidebar li {
@@ -126,7 +126,7 @@ form {
   grid-template-columns: 1fr 1.5fr;
   margin-bottom: 1.6rem;
   padding: 1.2rem;
-  width: 360px;
+  width: 36rem;
 }
 .form-split-bill {
   grid-template-columns: 1fr 12rem;

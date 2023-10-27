@@ -1,0 +1,74 @@
+/* 0-767 mobile
+767-900 tablet portrait
+900-1200 tablet landscape
+1200-1800 normal
+1800 big desktop */
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .app {
+    grid-template-columns: 1fr;
+    row-gap: 5rem;
+    padding: 2rem 1rem;
+  }
+  .sidebar ul {
+    width: 100%;
+  }
+
+  .form-split-bill {
+    padding: 2.2rem 3rem;
+  }
+
+  .form-add-friend {
+    width: 100%;
+  }
+
+  body {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .app {
+    grid-template-columns: 1fr;
+    row-gap: 5rem;
+    padding: 2rem 1rem;
+  }
+  .sidebar ul {
+    width: 100%;
+  }
+
+  .form-split-bill {
+    padding: 2.2rem 3rem;
+  }
+
+  .form-add-friend {
+    width: 100%;
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .form-add-friend input {
+    min-width: 18rem;
+  }
+
+  body {
+    align-items: flex-start;
+  }
+}
